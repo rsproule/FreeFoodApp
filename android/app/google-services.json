@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "509355987123",
+    "firebase_url": "https://free-food-app.firebaseio.com",
+    "project_id": "free-food-app",
+    "storage_bucket": "free-food-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:509355987123:android:de9fb829b98784a3",
+        "android_client_info": {
+          "package_name": "com.yourcompany.freefoodapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "509355987123-hi2em7c1oe4d6hsaoftuugtvbhifjrc3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yourcompany.freeFoodApp",
+            "certificate_hash": "f6146daa9a52d643a482c1feb446b8aff2b27817"
+          }
+        },
+        {
+          "client_id": "509355987123-fkhltrjqutkqi6qc1839g5i9rig14jaj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-JJ1Eg6QV6vAIN6joZcqrXDeoS5Lcp2k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "509355987123-fkhltrjqutkqi6qc1839g5i9rig14jaj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "509355987123-ihf6hpk0bcr6h7n6fl7ngducvaggnbgh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yourcompany.freeFoodApp"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
