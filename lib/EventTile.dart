@@ -207,7 +207,7 @@ class _EventTileState extends State<EventTile> {
                             children: <Widget>[
                               new MaterialButton(
                                 onPressed: () {
-                                  _openLink(snapshot.value['location']);
+                                  _openLocationLink(snapshot.value['location']);
                                 },
                                 splashColor: Theme
                                     .of(context)
@@ -230,7 +230,9 @@ class _EventTileState extends State<EventTile> {
 
                               new Divider(color: Colors.transparent),
                               new MaterialButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  _openTime(startTime, endTime);
+                                },
                                 splashColor: Theme
                                     .of(context)
                                     .accentColor,
@@ -259,7 +261,7 @@ class _EventTileState extends State<EventTile> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
                               new MaterialButton(
-                                onPressed: () {},
+                                onPressed: (){},
                                 splashColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 child: new Row(
@@ -444,7 +446,44 @@ class _EventTileState extends State<EventTile> {
     }
   }
 
-  _openLink(String link) {}
+  _openLocationLink(String link) async {
+    return showDialog(
+        context: context,
+        barrierDismissible: false,
+        child: new AlertDialog(
+          title: new Text(link),
+          content: new Text("This will give an option to open this location in Google Maps or something"),
+          actions: <Widget>[
+            new FlatButton(
+                onPressed: (){
+                  Navigator.of(context).pop();
+                },
+                child: new Text("Close")
+            )
+          ],
+        ),
+    );
+
+  }
+
+  _openTime(String startTime, String endTime) {
+    return showDialog(
+      context: context,
+      barrierDismissible: false,
+      child: new AlertDialog(
+        title: new Text(startTime + "-" + endTime),
+        content: new Text("This will give an option to open/save in calendar maybe"),
+        actions: <Widget>[
+          new FlatButton(
+              onPressed: (){
+                Navigator.of(context).pop();
+              },
+              child: new Text("Close")
+          )
+        ],
+      ),
+    );
+  }
 
 
 }
