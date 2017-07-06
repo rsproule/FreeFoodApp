@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import './loginStuff.dart' as login;
 
@@ -261,7 +263,7 @@ class _EventTileState extends State<EventTile> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
                               new MaterialButton(
-                                onPressed: (){},
+                                onPressed: () {},
                                 splashColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 child: new Row(
@@ -446,24 +448,32 @@ class _EventTileState extends State<EventTile> {
     }
   }
 
-  _openLocationLink(String link) async {
-    return showDialog(
-        context: context,
-        barrierDismissible: false,
-        child: new AlertDialog(
-          title: new Text(link),
-          content: new Text("This will give an option to open this location in Google Maps or something"),
-          actions: <Widget>[
-            new FlatButton(
-                onPressed: (){
-                  Navigator.of(context).pop();
-                },
-                child: new Text("Close")
-            )
-          ],
-        ),
-    );
+  _openLocationLink(String location) async {
 
+    String link = location.replaceAll(" ", "+");
+    return showDialog(
+      context: context,
+      barrierDismissible: true,
+      child: new AlertDialog(
+        title: new Text(location),
+        content: new MaterialButton(
+          child: new Text("View in Browser"),
+            color: Theme.of(context).accentColor,
+            textColor: Theme.of(context).canvasColor,
+            onPressed: () {
+              launch("https://www.google.com/maps/search/" + link);
+            },
+        ),
+        actions: <Widget>[
+          new FlatButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: new Text("Close")
+          )
+        ],
+      ),
+    );
   }
 
   _openTime(String startTime, String endTime) {
@@ -472,10 +482,11 @@ class _EventTileState extends State<EventTile> {
       barrierDismissible: false,
       child: new AlertDialog(
         title: new Text(startTime + "-" + endTime),
-        content: new Text("This will give an option to open/save in calendar maybe"),
+        content: new Text(
+            "This will give an option to open/save in calendar maybe"),
         actions: <Widget>[
           new FlatButton(
-              onPressed: (){
+              onPressed: () {
                 Navigator.of(context).pop();
               },
               child: new Text("Close")
