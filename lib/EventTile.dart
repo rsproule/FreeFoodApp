@@ -112,9 +112,7 @@ class _EventTileState extends State<EventTile> {
                                 Icons.star, color: Colors.yellow) : new Icon(
                                 Icons.star),
                             onPressed: this.hasStarred ? null : _addToStarred),
-                        new Text(numStars.toString()), // TODO show the
-                        // number of people that
-                        // have starred this
+                        new Text(numStars.toString()),
                       ]
                       ),
                       new Expanded(
@@ -188,7 +186,10 @@ class _EventTileState extends State<EventTile> {
 //                        padding: const EdgeInsets.symmetric(vertical: 7.0),
 
 
-                        child: snapshot.value['image_url'] == null
+                        child:
+                        //
+                        new InkWell(child:
+                        snapshot.value['image_url'] == null
                             ? new Image.network(
                           "http://edmhousenetwork.net/upload/gates/default.jpg",
                           height: 380.0,
@@ -197,7 +198,10 @@ class _EventTileState extends State<EventTile> {
                           snapshot.value['image_url'],
                           height: 380.0,
                           width: 400.0,
+                        ),
+                          onDoubleTap: this.hasStarred ? null : _addToStarred,
                         )
+                      //
                     )
                 ),
                 new Row(
@@ -209,7 +213,21 @@ class _EventTileState extends State<EventTile> {
                             children: <Widget>[
                               new MaterialButton(
                                 onPressed: () {
-                                  _openLocationLink(snapshot.value['location']);
+                                  if(snapshot.value['geolocation'] != null){
+                                    String lat;
+                                    String long;
+                                    Map loc = snapshot.value['geolocation'];
+                                    loc.forEach((k,v){
+                                      if (k=="latitude"){
+                                        lat = v;
+                                      }else if(k == "longitude") {
+                                        long = v;
+                                      }
+                                    });
+                                    String geoLocation = lat + "," + long;
+                                    _openLocationLink(snapshot.value['location'], geoLocation);
+                                  }
+                                  else _openLocationLink(snapshot.value['location']);
                                 },
                                 splashColor: Theme
                                     .of(context)
@@ -448,9 +466,10 @@ class _EventTileState extends State<EventTile> {
     }
   }
 
-  _openLocationLink(String location) async {
+  _openLocationLink(String location, [String geolocation]) async {
 
-    String link = location.replaceAll(" ", "+");
+    String link = geolocation == null ? location.replaceAll(" ", "+") : geolocation;
+
     return showDialog(
       context: context,
       barrierDismissible: true,

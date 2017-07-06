@@ -268,7 +268,8 @@ class _NewEventFormState extends State<NewEventForm> {
                 new IconButton(
                     icon: new Icon(Icons.add_a_photo),
                     onPressed: _getImage,
-                    tooltip: "Add Image"
+                    tooltip: "Add Image",
+
                 ),
                 new Text("Add a photo")
               ]
@@ -291,11 +292,10 @@ class _NewEventFormState extends State<NewEventForm> {
 
               new Center(
                   child: new MaterialButton(
-                      color: Colors.blue,
+                      color: Theme.of(context).accentColor,
                       onPressed: () => _submitEvent(),
                       elevation: 10.0,
 
-                      highlightColor: Colors.blueGrey,
                       highlightElevation: 5.0,
                       child: new Row(
                           mainAxisSize: MainAxisSize.min,
