@@ -22,8 +22,30 @@ class MainDrawerState extends State<MainDrawer> {
     this.currentPage = cp;
   }
 
+  bool useLightTheme = true;
+  ValueChanged<bool> onThemeChanged;
+
   @override
   Widget build(BuildContext context) {
+    final Widget lightThemeItem = new RadioListTile<bool>(
+      secondary: const Icon(Icons.brightness_5),
+      title: const Text('Light'),
+      value: true,
+      groupValue: useLightTheme,
+      onChanged: onThemeChanged,
+      selected: useLightTheme,
+    );
+
+    final Widget darkThemeItem = new RadioListTile<bool>(
+      secondary: const Icon(Icons.brightness_7),
+      title: const Text('Dark'),
+      value: false,
+      groupValue: useLightTheme,
+      onChanged: onThemeChanged,
+      selected: !useLightTheme,
+    );
+
+
     return new Drawer(
 
         child: new Column(
@@ -37,9 +59,10 @@ class MainDrawerState extends State<MainDrawer> {
                     "WU Free Grub",
                     textScaleFactor: 2.0,
                     style: new TextStyle(color: Colors.blue)),
-
-
               ),
+              lightThemeItem,
+              darkThemeItem,
+              new Divider(),
               new ListTile(
                   leading: new Icon(Icons.home),
                   title: new Text("Home"),

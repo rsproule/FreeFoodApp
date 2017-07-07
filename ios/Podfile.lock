@@ -79,6 +79,8 @@ PODS:
     - GTMSessionFetcher/Core (= 1.1.10)
   - image_picker (0.0.1):
     - Flutter
+  - path_provider (0.0.1):
+    - Flutter
   - url_launcher (0.0.1):
     - Flutter
 
@@ -89,6 +91,7 @@ DEPENDENCIES:
   - Flutter (from `/Users/ryansproule/Documents/Flutter Apps/flutter/bin/cache/artifacts/engine/ios`)
   - google_sign_in (from `/Users/ryansproule/.pub-cache/hosted/pub.dartlang.org/google_sign_in-0.2.1/ios`)
   - image_picker (from `/Users/ryansproule/.pub-cache/hosted/pub.dartlang.org/image_picker-0.1.0/ios`)
+  - path_provider (from `/Users/ryansproule/.pub-cache/hosted/pub.dartlang.org/path_provider-0.2.1+1/ios`)
   - url_launcher (from `/Users/ryansproule/.pub-cache/hosted/pub.dartlang.org/url_launcher-0.4.2+1/ios`)
 
 EXTERNAL SOURCES:
@@ -104,6 +107,8 @@ EXTERNAL SOURCES:
     :path: /Users/ryansproule/.pub-cache/hosted/pub.dartlang.org/google_sign_in-0.2.1/ios
   image_picker:
     :path: /Users/ryansproule/.pub-cache/hosted/pub.dartlang.org/image_picker-0.1.0/ios
+  path_provider:
+    :path: /Users/ryansproule/.pub-cache/hosted/pub.dartlang.org/path_provider-0.2.1+1/ios
   url_launcher:
     :path: /Users/ryansproule/.pub-cache/hosted/pub.dartlang.org/url_launcher-0.4.2+1/ios
 
@@ -127,6 +132,7 @@ SPEC CHECKSUMS:
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
   image_picker: a211f28b95a560433c00f5cd3773f4710a20404d
+  path_provider: f96fff6166a8867510d2c25fdcc346327cc4b259
   url_launcher: 0067ddb8f10d36786672aa0722a21717dba3a298
 
 PODFILE CHECKSUM: 351e02e34b831289961ec3558a535cbd2c4965d2

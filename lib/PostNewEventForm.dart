@@ -59,7 +59,8 @@ class _NewEventFormState extends State<NewEventForm> {
           title: new Text("New Event"),
           actions: <Widget>[
             new MaterialButton(
-                child: new Text("Preview", style: new TextStyle(color: Colors.white)),
+                child: new Text(
+                    "Preview", style: new TextStyle(color: Colors.white)),
                 onPressed: () {
                   _showPreview();
                 }
@@ -148,7 +149,8 @@ class _NewEventFormState extends State<NewEventForm> {
                               child: new IconButton(
                                   icon: new Icon(Icons.event),
                                   onPressed: () async {
-                                    showDatePicker(context: context,
+                                    showDatePicker(
+                                      context: context,
                                       initialDate: new DateTime(
                                           day.year, day.month, day.day + 1),
                                       firstDate: new DateTime(
@@ -266,9 +268,9 @@ class _NewEventFormState extends State<NewEventForm> {
               imageFile == null
                   ? new Column(children: <Widget>[
                 new IconButton(
-                    icon: new Icon(Icons.add_a_photo),
-                    onPressed: _getImage,
-                    tooltip: "Add Image",
+                  icon: new Icon(Icons.add_a_photo),
+                  onPressed: _getImage,
+                  tooltip: "Add Image",
 
                 ),
                 new Text("Add a photo")
@@ -292,7 +294,9 @@ class _NewEventFormState extends State<NewEventForm> {
 
               new Center(
                   child: new MaterialButton(
-                      color: Theme.of(context).accentColor,
+                      color: Theme
+                          .of(context)
+                          .accentColor,
                       onPressed: () => _submitEvent(),
                       elevation: 10.0,
 
@@ -368,7 +372,8 @@ class _NewEventFormState extends State<NewEventForm> {
   _submitEvent() async {
     _showProgressDialog();
 
-    DatabaseReference ref = FirebaseDatabase.instance.reference().child("foodEvents");
+    DatabaseReference ref = FirebaseDatabase.instance.reference().child(
+        "foodEvents");
 
     String name = _nameController.text;
     String group = _groupNameController.text;
@@ -505,8 +510,8 @@ class _NewEventFormState extends State<NewEventForm> {
   }
 
 
-
   bool isValid = true;
+
   _showPreview() async {
     // data to send
     String name = _nameController.text;
@@ -539,7 +544,7 @@ class _NewEventFormState extends State<NewEventForm> {
     };
 
     await _validateForm();
-    if(this.isValid) {
+    if (this.isValid) {
       print("valid");
       Navigator.of(context).push(new MaterialPageRoute(
           builder: (BuildContext context) {

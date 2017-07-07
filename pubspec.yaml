@@ -10,6 +10,7 @@ dependencies:
   image_picker: ^0.1.0
   firebase_storage: ^0.0.2
   url_launcher: ^0.4.1
+  path_provider: ^0.2.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
